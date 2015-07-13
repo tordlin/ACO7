@@ -1,0 +1,36 @@
+package week1.hw1;
+
+/**
+ * Created by Tordlin on 13/07/2015.
+ */
+
+/*OOP Homework 1.
+1. Create an application for company management.
+	Employee: name, salary, address, sex, age, working experience (in months)
+	Company: name, address, number of employees, list of employees
+	Address: Country, city, street, building
+
+	Application should look as a console menu. When application starts, user should see list of possible commands, which are numerated.
+  User chooses menu item, after that he sees result of chosen operation.
+  Application should work as long as user desires.
+
+	List of possible commands:
+	1. Read about company
+	2. View list of employees
+	3. View employees, which work more than year.
+	4. View employees, which are girls and live in Kiev
+	5. Add an employee
+	6. Fire an employee
+	7*. Fire an employee, with salary less then 1000 and which works less then year
+	8*. Change an employee information
+	9*. View list of employees: first women and then men
+	10*. Employee has a hire date(implement class java.util.Date)
+	11*. View employees, which works between 100 and 200 hours (use Date)
+
+	* - additional task(optional)
+*/
+public class Main {
+    public static void main(String[] args) {
+
+    }
+}
