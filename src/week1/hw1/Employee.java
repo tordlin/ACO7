@@ -13,4 +13,10 @@ public class Employee {
     String sex;
     int age;
     int workingExperience;
+
+    public String showEmployee() {
+        String employee = name + ", " + sex + ", age = " + age + ", address = " + address + ", salary = "
+                + salary + ", working experience = " + workingExperience;
+        return employee;
+    }
 }

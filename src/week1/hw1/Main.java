@@ -47,7 +47,7 @@ public class Main {
         sveta.name = "Svetlana";
         sveta.sex = "Female";
         sveta.age = 23;
-        sveta.address = "UnknownAddressSveta";
+        sveta.address = "Kiev";
         sveta.workingExperience = 24;
         sveta.salary = 2000;
 
@@ -55,31 +55,31 @@ public class Main {
         kolya.name = "Nikolay";
         kolya.sex = "Male";
         kolya.age = 28;
-        kolya.address = "UnknownAddressKolya";
+        kolya.address = "Kiev";
         kolya.workingExperience = 11;
         kolya.salary = 1200;
 
         Employee jack = new Employee();
-        jack.name = "jack";
+        jack.name = "Jack";
         jack.sex = "Male";
         jack.age = 33;
-        jack.address = "UnknownAddressJack";
+        jack.address = "London";
         jack.workingExperience = 38;
         jack.salary = 3800;
 
         Employee john = new Employee();
-        john.name = "john";
+        john.name = "John";
         john.sex = "Male";
         john.age = 25;
-        john.address = "UnknownAddressJohn";
+        john.address = "London";
         john.workingExperience = 7;
-        john.salary = 3000;
+        john.salary = 900;
 
         Employee tory = new Employee();
-        tory.name = "tory";
+        tory.name = "Tory";
         tory.sex = "Female";
         tory.age = 26;
-        tory.address = "UnknownAddressTory";
+        tory.address = "London";
         tory.workingExperience = 18;
         tory.salary = 2500;
 

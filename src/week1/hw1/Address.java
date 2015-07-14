@@ -11,4 +11,9 @@ public class Address {
     String city;
     String street;
     int building;
+
+    public String showAddress() {
+        String address = country + ", " + city + ", " + street + ", " + building;
+        return address;
+    }
 }
