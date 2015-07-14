@@ -1,5 +1,7 @@
 package week1.hw1;
 
+import java.util.Scanner;
+
 /**
  * Created by Tordlin on 13/07/2015.
  */
@@ -31,6 +33,139 @@ package week1.hw1;
 */
 public class Main {
     public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        boolean exit = true;
 
+        Address addressOfMars = new Address();
+        addressOfMars.country = "Ukraine";
+        addressOfMars.city = "Kiev";
+        addressOfMars.street = "Hreshatik";
+        addressOfMars.building = 12;
+
+
+        Employee sveta = new Employee();
+        sveta.name = "Svetlana";
+        sveta.sex = "Female";
+        sveta.age = 23;
+        sveta.address = "UnknownAddressSveta";
+        sveta.workingExperience = 24;
+        sveta.salary = 2000;
+
+        Employee kolya = new Employee();
+        kolya.name = "Nikolay";
+        kolya.sex = "Male";
+        kolya.age = 28;
+        kolya.address = "UnknownAddressKolya";
+        kolya.workingExperience = 11;
+        kolya.salary = 1200;
+
+        Employee jack = new Employee();
+        jack.name = "jack";
+        jack.sex = "Male";
+        jack.age = 33;
+        jack.address = "UnknownAddressJack";
+        jack.workingExperience = 38;
+        jack.salary = 3800;
+
+        Employee john = new Employee();
+        john.name = "john";
+        john.sex = "Male";
+        john.age = 25;
+        john.address = "UnknownAddressJohn";
+        john.workingExperience = 7;
+        john.salary = 3000;
+
+        Employee tory = new Employee();
+        tory.name = "tory";
+        tory.sex = "Female";
+        tory.age = 26;
+        tory.address = "UnknownAddressTory";
+        tory.workingExperience = 18;
+        tory.salary = 2500;
+
+
+        Company mars = new Company();
+        mars.name = "Mars";
+        mars.address = addressOfMars;
+        mars.listOfEmployees[0] = sveta;
+        mars.listOfEmployees[1] = kolya;
+        mars.listOfEmployees[2] = jack;
+        mars.listOfEmployees[3] = john;
+        mars.listOfEmployees[4] = tory;
+        mars.numberOfEmployees = mars.listOfEmployees.length;
+
+
+        Main.callMenu();
+
+        do{
+            int choose = sc.nextInt();
+
+        if(choose > 0 && choose < 12) {
+            if (choose == 1) {
+                //1. Read about company
+                mars.readAboutCompany();
+                exit = false;
+            } else if (choose == 2) {
+                //2. View list of employees
+                mars.viewListOfEmployees();
+                exit = false;
+            } else if (choose == 3) {
+                //3. View employees, which work more than year.
+                mars.veiwEmployeesWhichWorkMoreYear();
+                exit = false;
+            } else if (choose == 4) {
+                //4. View employees, which are girls and live in Kiev
+                mars.viewEmpoyeesGirlsKiev();
+                exit = false;
+            } else if (choose == 5) {
+                //5. Add an employee
+                mars.addEmployee();
+                exit = false;
+            } else if (choose == 6) {
+                //6. Fire an employee
+                mars.fireEmployee();
+                exit = false;
+            } else if (choose == 7) {
+                //7*. Fire an employee, with salary less then 1000 and which works less then year
+                mars.fireEmployeeSalLess1000AndLessYear();
+                exit = false;
+            } else if (choose == 8) {
+                //8*. Change an employee information
+                mars.changeEmployeeInfo();
+                exit = false;
+            } else if (choose == 9) {
+                //9*. View list of employees: first women and then men
+                mars.viewLostOfEmployeeWomMen();
+                exit = false;
+            } else if (choose == 10) {
+                //10*. Employee has a hire date(implement class java.util.Date)
+                mars.employeeHasHireDate();
+                exit = false;
+            } else if (choose == 11) {
+                //11*. View employees, which works between 100 and 200 hours (use Date)
+                mars.viewEmployeesbet100and200();
+                exit = false;
+            }
+        }else{
+            System.out.println();
+            System.out.println("Please enter correct number of action");
+            System.out.println();
+            Main.callMenu();
+        }}while (exit);
     }
+
+    private static void callMenu() {
+        System.out.println("1. Read about company");
+        System.out.println("2. View list of employees");
+        System.out.println("3. View employees, which work more than year.");
+        System.out.println("4. View employees, which are girls and live in Kiev");
+        System.out.println("5. Add an employee");
+        System.out.println("6. Fire an employee");
+        System.out.println("7*. Fire an employee, with salary less then 1000 and which works less then year");
+        System.out.println("8*. Change an employee information");
+        System.out.println("9*. View list of employees: first women and then men");
+        System.out.println("10*. Employee has a hire date(implement class java.util.Date)");
+        System.out.println("11*. View employees, which works between 100 and 200 hours (use Date)");
+    }
+
 }
