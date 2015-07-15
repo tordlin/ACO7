@@ -111,11 +111,89 @@ public class Company {
     }
 
     public void changeEmployeeInfo() {
+        viewListOfEmployees();
+        System.out.println("Which employee information you want to change? Please enter name");
+        String employeeName = sc.nextLine();
+        Employee changedEmloyee = null;
+
+        for (int i = 0; i < listOfEmployees.length; i++) {
+            if(listOfEmployees[i] != null){
+               if(listOfEmployees[i].name.equals(employeeName)){
+                   changedEmloyee = listOfEmployees[i];
+               }
+            }
+        }
+        changedEmloyee.showEmployee();
+        System.out.println("What do you want to change? Enter number");
+        System.out.println("1. name");
+        System.out.println("2. sex");
+        System.out.println("3. age");
+        System.out.println("4. address");
+        System.out.println("5. salary");
+        System.out.println("6. work experience");
+        Scanner sc = new Scanner(System.in);
+        String changeFieled = sc.nextLine();
+        System.out.println("Enter new value");
+        String newValue = sc.nextLine();
+
+        if(changeFieled.equals("1")){
+            changedEmloyee.name = newValue;
+        }else if(changeFieled.equals("2")){
+            changedEmloyee.sex = newValue;
+        }else if(changeFieled.equals("3")){
+            changedEmloyee.age = Integer.parseInt(newValue);
+        }else if(changeFieled.equals("4")){
+            changedEmloyee.address = newValue;
+        }else if(changeFieled.equals("5")){
+            changedEmloyee.salary = Integer.parseInt(newValue);
+        }else if(changeFieled.equals("6")){
+            changedEmloyee.workingExperience = Integer.parseInt(newValue);
+        }
+
+        System.out.println(changedEmloyee.showEmployee());
+
 
     }
 
     public void viewLostOfEmployeeWomMen() {
+        Employee[] women = new Employee[listOfEmployees.length];
+        int counterWomen = 0;
+        Employee[] men = new Employee[listOfEmployees.length];
+        int counterMen = 0;
+        Employee[] whichWeShow = new Employee[listOfEmployees.length];
+        int counterShow = 0;
 
+        for (int i = 0; i < listOfEmployees.length; i++) {
+            if(listOfEmployees[i] != null){
+                if(listOfEmployees[i].sex.equals("Female")){
+                    women[counterWomen] = listOfEmployees[i];
+                    counterWomen++;
+                }else{
+                    men[counterMen] = listOfEmployees[i];
+                    counterMen++;
+                }
+            }
+        }
+
+        for (int i = 0; i < women.length; i++) {
+            if(women[i] != null){
+                whichWeShow[counterShow] = women[i];
+                counterShow++;
+            }
+        }
+
+        for (int i = 0; i < men.length; i++) {
+            if(men[i] != null){
+                whichWeShow[counterShow] = men[i];
+                counterShow++;
+            }
+        }
+
+        for(int i = 0; i < whichWeShow.length; i++){
+            if(whichWeShow[i] != null) {
+                System.out.println(whichWeShow[i].showEmployee());
+            }
+        }
     }
 
     public void employeeHasHireDate() {
