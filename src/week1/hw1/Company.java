@@ -31,15 +31,19 @@ public class Company {
 
     public void veiwEmployeesWhichWorkMoreYear() {
         for(int i = 0; i < listOfEmployees.length; i++){
-            if(listOfEmployees[i].workingExperience > 12)
-            System.out.println(listOfEmployees[i].showEmployee());
+            if(listOfEmployees[i] != null){
+                if(listOfEmployees[i].workingExperience > 12)
+                    System.out.println(listOfEmployees[i].showEmployee());
+            }
         }
     }
 
     public void viewEmpoyeesGirlsKiev() {
         for(int i = 0; i < listOfEmployees.length; i++){
-            if(listOfEmployees[i].sex.equals("Female") && listOfEmployees[i].address.equals("Kiev"))
-                System.out.println(listOfEmployees[i].showEmployee());
+            if(listOfEmployees[i] != null){
+                if(listOfEmployees[i].sex.equals("Female") && listOfEmployees[i].address.equals("Kiev"))
+                    System.out.println(listOfEmployees[i].showEmployee());
+            }
         }
     }
 
@@ -49,10 +53,10 @@ public class Company {
         newEmployee.name = sc.nextLine();
         System.out.println("Enter sex");
         newEmployee.sex = sc.nextLine();
-        System.out.println("Enter age");
-        newEmployee.age = sc.nextInt();
         System.out.println("Enter address");
         newEmployee.address = sc.nextLine();
+        System.out.println("Enter age");
+        newEmployee.age = sc.nextInt();
         System.out.println("Enter salary");
         newEmployee.salary = sc.nextInt();
         System.out.println("Enter working Experience");
