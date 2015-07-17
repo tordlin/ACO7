@@ -36,6 +36,68 @@ public class Main {
         Scanner sc = new Scanner(System.in);
         boolean exit = true;
 
+        Company mars = createData();
+
+        do {
+            Main.callMenu();
+            int choose = sc.nextInt();
+
+            if (choose > 0 && choose < 12) {
+                if (choose == 1) {
+                    //1. Read about company
+                    mars.readAboutCompany();
+                    exit = isExit(sc, exit);
+                } else if (choose == 2) {
+                    //2. View list of employees
+                    mars.viewListOfEmployees();
+                    exit = isExit(sc, exit);
+                } else if (choose == 3) {
+                    //3. View employees, which work more than year.
+                    mars.veiwEmployeesWhichWorkMoreYear();
+                    exit = isExit(sc, exit);
+                } else if (choose == 4) {
+                    //4. View employees, which are girls and live in Kiev
+                    mars.viewEmpoyeesGirlsKiev();
+                    exit = isExit(sc, exit);
+                } else if (choose == 5) {
+                    //5. Add an employee
+                    mars.addEmployee();
+                    exit = isExit(sc, exit);
+                } else if (choose == 6) {
+                    //6. Fire an employee
+                    mars.fireEmployee();
+                    exit = isExit(sc, exit);
+                } else if (choose == 7) {
+                    //7*. Fire an employee, with salary less then 1000 and which works less then year
+                    mars.fireEmployeeSalLess1000AndLessYear();
+                    exit = isExit(sc, exit);
+                } else if (choose == 8) {
+                    //8*. Change an employee information
+                    mars.changeEmployeeInfo();
+                    exit = isExit(sc, exit);
+                } else if (choose == 9) {
+                    //9*. View list of employees: first women and then men
+                    mars.viewListOfEmployeeWomMen();
+                    exit = isExit(sc, exit);
+                } else if (choose == 10) {
+                    //10*. Employee has a hire date(implement class java.util.Date)
+                    mars.employeeHasHireDate();
+                    exit = isExit(sc, exit);
+                } else if (choose == 11) {
+                    //11*. View employees, which works between 100 and 200 hours (use Date)
+                    mars.viewEmployeesbet100and200();
+                    exit = isExit(sc, exit);
+                }
+            } else {
+                System.out.println();
+                System.out.println("Please enter correct number of action");
+                System.out.println();
+                Main.callMenu();
+            }
+        } while (exit);
+    }
+
+    private static Company createData() {
         Address addressOfMars = new Address();
         addressOfMars.country = "Ukraine";
         addressOfMars.city = "Kiev";
@@ -93,64 +155,7 @@ public class Main {
         mars.listOfEmployees[3] = john;
         mars.listOfEmployees[4] = tory;
         mars.numberOfEmployees = mars.listOfEmployees.length;
-
-
-        do{
-            Main.callMenu();
-            int choose = sc.nextInt();
-
-        if(choose > 0 && choose < 12) {
-            if (choose == 1) {
-                //1. Read about company
-                mars.readAboutCompany();
-                exit = isExit(sc, exit);
-            } else if (choose == 2) {
-                //2. View list of employees
-                mars.viewListOfEmployees();
-                exit = isExit(sc, exit);
-            } else if (choose == 3) {
-                //3. View employees, which work more than year.
-                mars.veiwEmployeesWhichWorkMoreYear();
-                exit = isExit(sc, exit);
-            } else if (choose == 4) {
-                //4. View employees, which are girls and live in Kiev
-                mars.viewEmpoyeesGirlsKiev();
-                exit = isExit(sc, exit);
-            } else if (choose == 5) {
-                //5. Add an employee
-                mars.addEmployee();
-                exit = isExit(sc, exit);
-            } else if (choose == 6) {
-                //6. Fire an employee
-                mars.fireEmployee();
-                exit = isExit(sc, exit);
-            } else if (choose == 7) {
-                //7*. Fire an employee, with salary less then 1000 and which works less then year
-                mars.fireEmployeeSalLess1000AndLessYear();
-                exit = isExit(sc, exit);
-            } else if (choose == 8) {
-                //8*. Change an employee information
-                mars.changeEmployeeInfo();
-                exit = isExit(sc, exit);
-            } else if (choose == 9) {
-                //9*. View list of employees: first women and then men
-                mars.viewLostOfEmployeeWomMen();
-                exit = isExit(sc, exit);
-            } else if (choose == 10) {
-                //10*. Employee has a hire date(implement class java.util.Date)
-                mars.employeeHasHireDate();
-                exit = isExit(sc, exit);
-            } else if (choose == 11) {
-                //11*. View employees, which works between 100 and 200 hours (use Date)
-                mars.viewEmployeesbet100and200();
-                exit = isExit(sc, exit);
-            }
-        }else{
-            System.out.println();
-            System.out.println("Please enter correct number of action");
-            System.out.println();
-            Main.callMenu();
-        }}while(exit);
+        return mars;
     }
 
     private static boolean isExit(Scanner sc, boolean exit) {
@@ -158,9 +163,9 @@ public class Main {
         System.out.println("1. Yes");
         System.out.println("2. No");
         int questionAboutExit = sc.nextInt();
-        if(questionAboutExit == 1){
+        if (questionAboutExit == 1) {
             exit = true;
-        }else{
+        } else {
             exit = false;
         }
         return exit;

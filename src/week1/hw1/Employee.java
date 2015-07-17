@@ -1,5 +1,7 @@
 package week1.hw1;
 
+import java.util.Date;
+
 /**
  * Created by Tordlin on 13/07/2015.
  */
