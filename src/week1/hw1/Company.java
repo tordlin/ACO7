@@ -1,5 +1,6 @@
 package week1.hw1;
 
+import java.util.Date;
 import java.util.Scanner;
 
 /**
@@ -29,10 +30,8 @@ public class Company {
 
     public void veiwEmployeesWhichWorkMoreYear() {
         for (int i = 0; i < listOfEmployees.length; i++) {
-            if (listOfEmployees[i] != null) {
-                if (listOfEmployees[i].workingExperience > 12)
-                    System.out.println(listOfEmployees[i].showEmployee());
-            }
+            if (listOfEmployees[i].workingExperience > 12)
+                System.out.println(listOfEmployees[i].showEmployee());
         }
     }
 
@@ -57,8 +56,8 @@ public class Company {
         newEmployee.age = sc.nextInt();
         System.out.println("Enter salary");
         newEmployee.salary = sc.nextInt();
-        System.out.println("Enter working Experience");
-        newEmployee.workingExperience = sc.nextInt();
+        newEmployee.workingExperience = 0;
+        newEmployee.hireDate = new Date();
 
         Employee[] newListOfEmployees = new Employee[listOfEmployees.length + 1];
 
@@ -219,6 +218,15 @@ public class Company {
     }
 
     public void viewEmployeesbet100and200() {
-
+        final int WORK_HOUR_TO_MILLISEC = 1000 * 60 * 60 / 3 * 5 / 7;
+        Date currentDate = new Date();
+        for (int i = 0; i < listOfEmployees.length; i++) {
+            /*if ((currentDate.getTime() - listOfEmployees[i].hireDate.getTime()) / WORK_HOUR_TO_MILLISEC > 100 &&
+                    (currentDate.getTime() - listOfEmployees[i].hireDate.getTime()) / WORK_HOUR_TO_MILLISEC < 200) {
+                System.out.println(listOfEmployees[i].showEmployee());
+            }*/
+            System.out.println(currentDate.getTime());
+            System.out.println(listOfEmployees[i].hireDate.getTime());
+        }
     }
 }

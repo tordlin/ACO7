@@ -1,5 +1,7 @@
 package week1.hw1;
 
+import java.util.Calendar;
+import java.util.Date;
 import java.util.Scanner;
 
 /**
@@ -112,6 +114,7 @@ public class Main {
         sveta.address = "Kiev";
         sveta.workingExperience = 24;
         sveta.salary = 2000;
+        sveta.hireDate = new Date(2013, Calendar.JULY, 17);
 
         Employee kolya = new Employee();
         kolya.name = "Nikolay";
@@ -120,6 +123,7 @@ public class Main {
         kolya.address = "Kiev";
         kolya.workingExperience = 11;
         kolya.salary = 1200;
+        kolya.hireDate = new Date(2015, Calendar.JUNE, 20);
 
         Employee jack = new Employee();
         jack.name = "Jack";
@@ -128,6 +132,7 @@ public class Main {
         jack.address = "London";
         jack.workingExperience = 38;
         jack.salary = 3800;
+        jack.hireDate = new Date(2012, Calendar.JUNE, 06);
 
         Employee john = new Employee();
         john.name = "John";
@@ -136,6 +141,7 @@ public class Main {
         john.address = "London";
         john.workingExperience = 7;
         john.salary = 900;
+        john.hireDate = new Date(2014, Calendar.DECEMBER, 03);
 
         Employee tory = new Employee();
         tory.name = "Tory";
@@ -144,7 +150,7 @@ public class Main {
         tory.address = "London";
         tory.workingExperience = 18;
         tory.salary = 2500;
-
+        tory.hireDate = new Date(2013, Calendar.DECEMBER, 28);
 
         Company mars = new Company();
         mars.name = "Mars";

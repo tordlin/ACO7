@@ -15,10 +15,11 @@ public class Employee {
     String sex;
     int age;
     int workingExperience;
+    Date hireDate;
 
     public String showEmployee() {
         String employee = name + ", " + sex + ", age = " + age + ", address = " + address + ", salary = "
-                + salary + ", working experience = " + workingExperience;
+                + salary + ", working experience = " + workingExperience + ", hire date = " + hireDate;
         return employee;
     }
 }
