@@ -1,5 +1,7 @@
 package week1.hw1;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Scanner;
@@ -34,7 +36,7 @@ import java.util.Scanner;
 	* - additional task(optional)
 */
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws ParseException {
         Scanner sc = new Scanner(System.in);
         boolean exit = true;
 
@@ -99,68 +101,73 @@ public class Main {
         } while (exit);
     }
 
-    private static Company createData() {
+    private static Company createData() throws ParseException {
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
+        Date date = new Date();
+
+
         Address addressOfMars = new Address();
-        addressOfMars.country = "Ukraine";
-        addressOfMars.city = "Kiev";
-        addressOfMars.street = "Hreshatik";
-        addressOfMars.building = 12;
+        addressOfMars.setCountry("Ukraine");
+        addressOfMars.setCity("Kiev");
+        addressOfMars.setStreet("Hreshatik");
+        addressOfMars.setBuilding(12);
 
 
         Employee sveta = new Employee();
-        sveta.name = "Svetlana";
-        sveta.sex = "Female";
-        sveta.age = 23;
-        sveta.address = "Kiev";
-        sveta.workingExperience = 24;
-        sveta.salary = 2000;
-        sveta.hireDate = new Date(2013, Calendar.JULY, 17);
+        sveta.setName("Svetlana");
+        sveta.setSex("Female");
+        sveta.setAge(23);
+        sveta.setAddress("Kiev");
+        sveta.setWorkingExperience(24);
+        sveta.setSalary(2000);
+        sveta.setHireDate(sdf.parse("2013/07/18"));
 
         Employee kolya = new Employee();
-        kolya.name = "Nikolay";
-        kolya.sex = "Male";
-        kolya.age = 28;
-        kolya.address = "Kiev";
-        kolya.workingExperience = 11;
-        kolya.salary = 1200;
-        kolya.hireDate = new Date(2015, Calendar.JUNE, 20);
+        kolya.setName("Nikolay");
+        kolya.setSex("Male");
+        kolya.setAge(28);
+        kolya.setAddress("Kiev");
+        kolya.setWorkingExperience(11);
+        kolya.setSalary(1200);
+        kolya.setHireDate(sdf.parse("2015/07/12"));
 
         Employee jack = new Employee();
-        jack.name = "Jack";
-        jack.sex = "Male";
-        jack.age = 33;
-        jack.address = "London";
-        jack.workingExperience = 38;
-        jack.salary = 3800;
-        jack.hireDate = new Date(2012, Calendar.JUNE, 06);
+        jack.setName("Jack");
+        jack.setSex("Male");
+        jack.setAge(33);
+        jack.setAddress("London");
+        jack.setWorkingExperience(38);
+        jack.setSalary(3800);
+        jack.setHireDate(sdf.parse("2012/05/19"));
 
         Employee john = new Employee();
-        john.name = "John";
-        john.sex = "Male";
-        john.age = 25;
-        john.address = "London";
-        john.workingExperience = 7;
-        john.salary = 900;
-        john.hireDate = new Date(2014, Calendar.DECEMBER, 03);
+        john.setName("John");
+        john.setSex("Male");
+        john.setAge(25);
+        john.setAddress("London");
+        john.setWorkingExperience(7);
+        john.setSalary(900);
+        john.setHireDate(sdf.parse("2014/12/19"));
 
         Employee tory = new Employee();
-        tory.name = "Tory";
-        tory.sex = "Female";
-        tory.age = 26;
-        tory.address = "London";
-        tory.workingExperience = 18;
-        tory.salary = 2500;
-        tory.hireDate = new Date(2013, Calendar.DECEMBER, 28);
+        tory.setName("Tory");
+        tory.setSex("Female");
+        tory.setAge(26);
+        tory.setAddress("London");
+        tory.setWorkingExperience(18);
+        tory.setSalary(2500);
+        tory.setHireDate(sdf.parse("2014/01/12"));
 
         Company mars = new Company();
-        mars.name = "Mars";
-        mars.address = addressOfMars;
-        mars.listOfEmployees[0] = sveta;
-        mars.listOfEmployees[1] = kolya;
-        mars.listOfEmployees[2] = jack;
-        mars.listOfEmployees[3] = john;
-        mars.listOfEmployees[4] = tory;
-        mars.numberOfEmployees = mars.listOfEmployees.length;
+        mars.setName("Mars");
+        mars.setAddress(addressOfMars);
+        mars.addEmployeeToListOfEmployees(sveta);
+        mars.addEmployeeToListOfEmployees(sveta);
+        mars.addEmployeeToListOfEmployees(kolya);
+        mars.addEmployeeToListOfEmployees(jack);
+        mars.addEmployeeToListOfEmployees(john);
+        mars.addEmployeeToListOfEmployees(tory);
+        mars.setNumberOfEmployees(mars.listOfEmployees.length);
         return mars;
     }
 

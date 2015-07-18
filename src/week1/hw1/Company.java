@@ -10,16 +10,42 @@ import java.util.Scanner;
 /*Company: name, address, number of employees, list of employees*/
 
 public class Company {
-    String name;
-    Address address;
-    int numberOfEmployees;
+    private String name;
+    private Address address;
+    private int numberOfEmployees;
     Employee[] listOfEmployees = new Employee[5];
     Scanner sc = new Scanner(System.in);
 
+    public String getName() {
+
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getNumberOfEmployees() {
+        return numberOfEmployees;
+    }
+
+    public void setNumberOfEmployees(int numberOfEmployees) {
+        this.numberOfEmployees = numberOfEmployees;
+    }
+
+    public Address getAddress() {
+        return address;
+    }
+
+    public void setAddress(Address address) {
+        this.address = address;
+    }
+
+
     public void readAboutCompany() {
-        System.out.println("Name = " + name);
-        System.out.println("Address = " + address.showAddress());
-        System.out.println("Number of Employees = " + numberOfEmployees);
+        System.out.println("Name = " + getName());
+        System.out.println("Address = " + getAddress().showAddress());
+        System.out.println("Number of Employees = " + getNumberOfEmployees());
     }
 
     public void viewListOfEmployees() {
@@ -30,7 +56,7 @@ public class Company {
 
     public void veiwEmployeesWhichWorkMoreYear() {
         for (int i = 0; i < listOfEmployees.length; i++) {
-            if (listOfEmployees[i].workingExperience > 12)
+            if (listOfEmployees[i].getWorkingExperience() > 12)
                 System.out.println(listOfEmployees[i].showEmployee());
         }
     }
@@ -38,7 +64,7 @@ public class Company {
     public void viewEmpoyeesGirlsKiev() {
         for (int i = 0; i < listOfEmployees.length; i++) {
             if (listOfEmployees[i] != null) {
-                if (listOfEmployees[i].sex.equals("Female") && listOfEmployees[i].address.equals("Kiev"))
+                if (listOfEmployees[i].getSex().equals("Female") && listOfEmployees[i].getAddress().equals("Kiev"))
                     System.out.println(listOfEmployees[i].showEmployee());
             }
         }
@@ -47,17 +73,17 @@ public class Company {
     public void addEmployee() {
         Employee newEmployee = new Employee();
         System.out.println("Enter name");
-        newEmployee.name = sc.nextLine();
+        newEmployee.setName(sc.nextLine());
         System.out.println("Enter sex");
-        newEmployee.sex = sc.nextLine();
+        newEmployee.setSex(sc.nextLine());
         System.out.println("Enter address");
-        newEmployee.address = sc.nextLine();
+        newEmployee.setAddress(sc.nextLine());
         System.out.println("Enter age");
-        newEmployee.age = sc.nextInt();
+        newEmployee.setAge(sc.nextInt());
         System.out.println("Enter salary");
-        newEmployee.salary = sc.nextInt();
-        newEmployee.workingExperience = 0;
-        newEmployee.hireDate = new Date();
+        newEmployee.setSalary(sc.nextInt());
+        newEmployee.setWorkingExperience(0);
+        newEmployee.setHireDate(new Date());
 
         Employee[] newListOfEmployees = new Employee[listOfEmployees.length + 1];
 
@@ -80,7 +106,7 @@ public class Company {
         String fireName = sc.nextLine();
 
         for (int i = 0; i < listOfEmployees.length; i++) {
-            if (listOfEmployees[i].name.equals(fireName)) {
+            if (listOfEmployees[i].getName().equals(fireName)) {
                 listOfEmployees[i] = null;
             }
         }
@@ -97,8 +123,8 @@ public class Company {
         int couter = 0;
 
         for (int i = 0; i < listOfEmployees.length; i++) {
-            if (listOfEmployees[i].salary < 1000 && listOfEmployees[i].workingExperience < 12) {
-                fireEmployeeName[couter] = listOfEmployees[i].name;
+            if (listOfEmployees[i].getSalary() < 1000 && listOfEmployees[i].getWorkingExperience() < 12) {
+                fireEmployeeName[couter] = listOfEmployees[i].getName();
                 couter++;
             }
         }
@@ -106,7 +132,7 @@ public class Company {
         for (int i = 0; i < fireEmployeeName.length; i++) {
             if (fireEmployeeName[i] != null) {
                 for (int j = 0; j < listOfEmployees.length; j++) {
-                    if (fireEmployeeName[i] == listOfEmployees[j].name) {
+                    if (fireEmployeeName[i] == listOfEmployees[j].getName()) {
                         listOfEmployees[j] = null;
                         numberOfEmployees--;
                     }
@@ -140,7 +166,7 @@ public class Company {
         Employee changedEmloyee = null;
 
         for (int i = 0; i < listOfEmployees.length; i++) {
-            if (listOfEmployees[i].name.equals(employeeName)) {
+            if (listOfEmployees[i].getName().equals(employeeName)) {
                 changedEmloyee = listOfEmployees[i];
             }
         }
@@ -158,17 +184,17 @@ public class Company {
         String newValue = sc.nextLine();
 
         if (changeFieled.equals("1")) {
-            changedEmloyee.name = newValue;
+            changedEmloyee.setName(newValue);
         } else if (changeFieled.equals("2")) {
-            changedEmloyee.sex = newValue;
+            changedEmloyee.setSex(newValue);
         } else if (changeFieled.equals("3")) {
-            changedEmloyee.age = Integer.parseInt(newValue);
+            changedEmloyee.setAge(Integer.parseInt(newValue));
         } else if (changeFieled.equals("4")) {
-            changedEmloyee.address = newValue;
+            changedEmloyee.setAddress(newValue);
         } else if (changeFieled.equals("5")) {
-            changedEmloyee.salary = Integer.parseInt(newValue);
+            changedEmloyee.setSalary(Integer.parseInt(newValue));
         } else if (changeFieled.equals("6")) {
-            changedEmloyee.workingExperience = Integer.parseInt(newValue);
+            changedEmloyee.setWorkingExperience(Integer.parseInt(newValue));
         }
 
         System.out.println(changedEmloyee.showEmployee());
@@ -183,7 +209,7 @@ public class Company {
         int counterShow = 0;
 
         for (int i = 0; i < listOfEmployees.length; i++) {
-            if (listOfEmployees[i].sex.equals("Female")) {
+            if (listOfEmployees[i].getSex().equals("Female")) {
                 women[counterWomen] = listOfEmployees[i];
                 counterWomen++;
             } else {
@@ -221,12 +247,26 @@ public class Company {
         final int WORK_HOUR_TO_MILLISEC = 1000 * 60 * 60 / 3 * 5 / 7;
         Date currentDate = new Date();
         for (int i = 0; i < listOfEmployees.length; i++) {
-            /*if ((currentDate.getTime() - listOfEmployees[i].hireDate.getTime()) / WORK_HOUR_TO_MILLISEC > 100 &&
-                    (currentDate.getTime() - listOfEmployees[i].hireDate.getTime()) / WORK_HOUR_TO_MILLISEC < 200) {
-                System.out.println(listOfEmployees[i].showEmployee());
-            }*/
-            System.out.println(currentDate.getTime());
-            System.out.println(listOfEmployees[i].hireDate.getTime());
+
+            Employee empl = listOfEmployees[i];
+            long millis = currentDate.getTime() - empl.getHireDate().getTime();
+            long hours = millis / 1000 / 60 / 60;
+
+            if(100 <= hours && hours <= 200){
+                System.out.println(empl.showEmployee());
+            }
+
+            /*System.out.println(currentDate.getTime());
+            System.out.println(listOfEmployees[i].hireDate.getTime());*/
+        }
+    }
+
+    public void addEmployeeToListOfEmployees(Employee name) {
+        for (int i = 0; i < listOfEmployees.length; i++) {
+            if (listOfEmployees[i] == null) {
+                listOfEmployees[i] = name;
+                break;
+            }
         }
     }
 }
