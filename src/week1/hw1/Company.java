@@ -13,6 +13,7 @@ public class Company {
     private String name;
     private Address address;
     private int numberOfEmployees;
+
     Employee[] listOfEmployees = new Employee[5];
     Scanner sc = new Scanner(System.in);
 
@@ -244,10 +245,8 @@ public class Company {
     }
 
     public void viewEmployeesbet100and200() {
-        final int WORK_HOUR_TO_MILLISEC = 1000 * 60 * 60 / 3 * 5 / 7;
         Date currentDate = new Date();
         for (int i = 0; i < listOfEmployees.length; i++) {
-
             Employee empl = listOfEmployees[i];
             long millis = currentDate.getTime() - empl.getHireDate().getTime();
             long hours = millis / 1000 / 60 / 60;
@@ -255,9 +254,6 @@ public class Company {
             if(100 <= hours && hours <= 200){
                 System.out.println(empl.showEmployee());
             }
-
-            /*System.out.println(currentDate.getTime());
-            System.out.println(listOfEmployees[i].hireDate.getTime());*/
         }
     }
 
