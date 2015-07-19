@@ -1,67 +1,63 @@
 package week2.hw2;
 
-import java.util.Arrays;
-
 /**
  * Created by Tordlin on 19/07/2015.
  */
 public class Array {
 
-    private int[] temp;
+    private int[] elements;
 
 
     public Array(int length) {
-        temp = new int[length];
+        elements = new int[length];
     }
 
     public void populateRandomValues() {
-        for (int i = 0; i < temp.length; i++){
-            temp[i] = (int) (Math.random() * 10);
+        for (int i = 0; i < elements.length; i++) {
+            elements[i] = (int) (Math.random() * 10);
         }
     }
 
-    public void findMin() {
-        int min = temp[0];
-        if(temp.length > 0){
-            for (int i = 1; i < temp.length; i++) {
-                if(temp[i] < min){
-                    min = temp[i];
-                }
+    public int findMin() {
+        int min = elements[0];
+        for (int i = 1; i < elements.length; i++) {
+            if (elements[i] < min) {
+                min = elements[i];
             }
         }
-        System.out.println("Minimum is " + min);
+        return min;
     }
 
-    public void findMax() {
-        int max = temp[0];
-        if(temp.length > 0){
-            for (int i = 1; i < temp.length; i++) {
-                if(temp[i] > max){
-                    max = temp[i];
+    public int findMax() {
+        int max = elements[0];
+        if (elements.length > 0) {
+            for (int i = 1; i < elements.length; i++) {
+                if (elements[i] > max) {
+                    max = elements[i];
                 }
             }
         }
-        System.out.println("Maximum is " + max);
+        return max;
     }
 
     public void expandLengthTo(int lengthPlus) {
-        int[] newTemp = new int[temp.length + lengthPlus];
+        int[] newTemp = new int[elements.length + lengthPlus];
 
-        for (int i = 0; i < temp.length; i++) {
-            newTemp[i] = temp[i];
+        for (int i = 0; i < elements.length; i++) {
+            newTemp[i] = elements[i];
         }
 
-        temp = newTemp;
+        elements = newTemp;
     }
 
     public void sortAsc() {
         int tmp;
-        for (int i = 0; i < temp.length - 1; i++) {
-            for (int j = 0; j < temp.length - 1; j++) {
-                if(temp[j] > temp[j + 1]){
-                    tmp = temp[j];
-                    temp[j] = temp[j + 1];
-                    temp[j + 1] = tmp;
+        for (int i = 0; i < elements.length - 1; i++) {
+            for (int j = 0; j < elements.length - 1; j++) {
+                if (elements[j] > elements[j + 1]) {
+                    tmp = elements[j];
+                    elements[j] = elements[j + 1];
+                    elements[j + 1] = tmp;
                 }
             }
         }
@@ -70,15 +66,16 @@ public class Array {
 
     public String toString() {
         String tmpShow = "{";
-        String tmp = "";
-        for (int i = 0; i <temp.length - 1; i++) {
-            tmp += Integer.toString(temp[i]) + " ";
+        for (int i = 0; i < elements.length - 1; i++) {
+            tmpShow += Integer.toString(elements[i]) + " ";
         }
-        tmpShow = "Array - " + tmpShow + tmp + Integer.toString(temp[temp.length - 1]) + "}";
+        tmpShow = "Array - " + tmpShow + Integer.toString(elements[elements.length - 1]) + "}";
         return tmpShow;
     }
 
-    public boolean equals(Array arr){
+    public boolean equals(Array arr) {
+        boolean returnValue = true;
 
+        return returnValue;
     }
 }

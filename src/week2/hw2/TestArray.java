@@ -11,9 +11,9 @@ public class TestArray {
 
         System.out.println(arr.toString());
 
-        arr.findMin();
+        System.out.println("Min is " + arr.findMin());
 
-        arr.findMax();
+        System.out.println("Max is " + arr.findMax());
 
         arr.expandLengthTo(2);
 
@@ -28,10 +28,10 @@ public class TestArray {
 
         System.out.println(arr2.toString());
 
-        arr2.findMin();
+        System.out.println("Min is " + arr2.findMin());
 
-        arr2.findMax();
+        System.out.println("Max is " + arr2.findMax());
 
-        arr.equals(arr2);
+        System.out.println(arr.equals(arr2));
     }
 }
