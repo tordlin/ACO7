@@ -30,13 +30,11 @@ public class Array {
 
     public int findMax() {
         int max = elements[0];
-        if (elements.length > 0) {
             for (int i = 1; i < elements.length; i++) {
                 if (elements[i] > max) {
                     max = elements[i];
                 }
             }
-        }
         return max;
     }
 
@@ -73,9 +71,19 @@ public class Array {
         return tmpShow;
     }
 
-    public boolean equals(Array arr) {
+    public boolean equals(Object arr) {
         boolean returnValue = true;
 
+        if(!(arr instanceof Array)){
+            returnValue = false;
+        }else if(this.elements.length != ((Array) arr).elements.length){
+            returnValue = false;
+        }
+        for (int i = 0; i < this.elements.length; i++) {
+            if(this.elements[i] != ((Array) arr).elements.length){
+                returnValue = false;
+            }
+        }
         return returnValue;
     }
 }
