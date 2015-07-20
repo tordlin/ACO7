@@ -12,9 +12,6 @@ public class TestCalculator {
         boolean exit = true;
 
         do {
-            System.out.println("Enter value");
-            calculator.setValue(sc.nextDouble());
-
             TestCalculator.callMenu();
             System.out.println("Choose actions");
             double choose = sc.nextDouble();
@@ -22,23 +19,35 @@ public class TestCalculator {
             if (choose > 0 && choose < 5) {
                 if (choose == 1) {
                     //1. Add
-                    System.out.println("Enter value");
-                    calculator.add(sc.nextDouble());
+                    System.out.println("Enter first value");
+                    double firstValue = sc.nextDouble();
+                    System.out.println("Enter second value");
+                    double secondValue = sc.nextDouble();
+                    calculator.add(firstValue, secondValue);
                     exit = isExit(sc, exit);
                 } else if (choose == 2) {
                     //2. Minus
-                    System.out.println("Enter value");
-                    calculator.minus(sc.nextDouble());
+                    System.out.println("Enter first value");
+                    double firstValue = sc.nextDouble();
+                    System.out.println("Enter second value");
+                    double secondValue = sc.nextDouble();
+                    calculator.minus(firstValue, secondValue);
                     exit = isExit(sc, exit);
                 } else if (choose == 3) {
                     //3. Multiple
-                    System.out.println("Enter value");
-                    calculator.multiple(sc.nextDouble());
+                    System.out.println("Enter first value");
+                    double firstValue = sc.nextDouble();
+                    System.out.println("Enter second value");
+                    double secondValue = sc.nextDouble();
+                    calculator.multiple(firstValue, secondValue);
                     exit = isExit(sc, exit);
                 } else if (choose == 4) {
                     //4. Divide
-                    System.out.println("Enter value");
-                    calculator.devide(sc.nextDouble());
+                    System.out.println("Enter first value");
+                    double firstValue = sc.nextDouble();
+                    System.out.println("Enter second value");
+                    double secondValue = sc.nextDouble();
+                    calculator.devide(firstValue, secondValue);
                     exit = isExit(sc, exit);
                 }
             } else {
