@@ -70,10 +70,10 @@ public class StringClass {
 
         return this.elements.length == newElements.length;
 
-        for (int i = 0; i < this.elements.length; i++) {
+        /*for (int i = 0; i < this.elements.length; i++) {
             if(this.elements[i] != newElements[i]){
                 return false;
             }
-        }
+        }*/
     }
 }
