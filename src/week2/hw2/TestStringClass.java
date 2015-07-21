@@ -9,17 +9,14 @@ public class TestStringClass {
 
         stringClass.print();
 
-        String resultOfConcatenation = stringClass.concatenation("secondWord");
+        System.out.println(stringClass.concatenation("secondWord"));
 
-        System.out.println(resultOfConcatenation);
+        System.out.println(stringClass.lowerCase());
 
-        String resultOfLowerCase = stringClass.lowerCase();
+        System.out.println(stringClass.upperCase());
 
-        System.out.println(resultOfLowerCase);
+        System.out.println(stringClass.spaceDeleting());
 
-        String resultOfUpperCase = stringClass.upperCase();
-
-        System.out.println(resultOfUpperCase);
-
+        System.out.println(stringClass.equalsToString("NewWord"));
     }
 }

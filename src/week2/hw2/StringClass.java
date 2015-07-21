@@ -56,4 +56,24 @@ public class StringClass {
     public String upperCase() {
         return getStringFromCharArray();
     }
+
+    public String spaceDeleting() {
+
+        return getStringFromCharArray();
+    }
+
+    public boolean equalsToString(String newWord) {
+        if(newWord == null) {
+            return false;
+        }
+        char[] newElements = newWord.toCharArray();
+
+        return this.elements.length == newElements.length;
+
+        for (int i = 0; i < this.elements.length; i++) {
+            if(this.elements[i] != newElements[i]){
+                return false;
+            }
+        }
+    }
 }
