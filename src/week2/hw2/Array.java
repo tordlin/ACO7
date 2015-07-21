@@ -72,18 +72,26 @@ public class Array {
     }
 
     public boolean equals(Object arr) {
-        boolean returnValue = true;
+        if(this == arr) {
+            return true;
+        }
 
-        if(!(arr instanceof Array)){
-            returnValue = false;
-        }else if(this.elements.length != ((Array) arr).elements.length){
-            returnValue = false;
+        if(arr == null) {
+            return false;
         }
-        for (int i = 0; i < this.elements.length; i++) {
-            if(this.elements[i] != ((Array) arr).elements.length){
-                returnValue = false;
+
+        if(!(arr instanceof Array)) {
+            return false;
+        }
+
+        Array other = (Array) arr;
+
+        return this.elements.length == other.elements.length;
+
+        /*for (int i = 0; i < this.elements.length; i++) {
+            if(this.elements[i] != other.elements.length){
+                return false;
             }
-        }
-        return returnValue;
+        }*/
     }
 }
