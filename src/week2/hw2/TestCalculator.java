@@ -23,7 +23,7 @@ public class TestCalculator {
                     double firstValue = sc.nextDouble();
                     System.out.println("Enter second value");
                     double secondValue = sc.nextDouble();
-                    calculator.add(firstValue, secondValue);
+                    System.out.println(calculator.add(firstValue, secondValue));
                     exit = isExit(sc, exit);
                 } else if (choose == 2) {
                     //2. Minus
@@ -31,7 +31,7 @@ public class TestCalculator {
                     double firstValue = sc.nextDouble();
                     System.out.println("Enter second value");
                     double secondValue = sc.nextDouble();
-                    calculator.minus(firstValue, secondValue);
+                    System.out.println(calculator.minus(firstValue, secondValue));
                     exit = isExit(sc, exit);
                 } else if (choose == 3) {
                     //3. Multiple
@@ -39,7 +39,7 @@ public class TestCalculator {
                     double firstValue = sc.nextDouble();
                     System.out.println("Enter second value");
                     double secondValue = sc.nextDouble();
-                    calculator.multiple(firstValue, secondValue);
+                    System.out.println(calculator.multiple(firstValue, secondValue));
                     exit = isExit(sc, exit);
                 } else if (choose == 4) {
                     //4. Divide
@@ -47,7 +47,7 @@ public class TestCalculator {
                     double firstValue = sc.nextDouble();
                     System.out.println("Enter second value");
                     double secondValue = sc.nextDouble();
-                    calculator.devide(firstValue, secondValue);
+                    System.out.println(calculator.devide(firstValue, secondValue));
                     exit = isExit(sc, exit);
                 }
             } else {

@@ -5,23 +5,20 @@ package week2.hw2;
  */
 public class Calculator {
 
-    public void add(double firstValue, double secondValue){
+    public double add(double firstValue, double secondValue) {
         double showed = firstValue + secondValue;
-        System.out.println(showed);
+        return showed;
     }
 
-    public void minus(double firstValue, double secondValue){
+    public double minus(double firstValue, double secondValue) {
         double showed = firstValue - secondValue;
-        System.out.println(showed);
-    }
+        return showed;    }
 
-    public void multiple(double firstValue, double secondValue) {
+    public double multiple(double firstValue, double secondValue) {
         double showed = firstValue * secondValue;
-        System.out.println(showed);
-    }
+        return showed;    }
 
-    public void devide(double firstValue, double secondValue) {
+    public double devide(double firstValue, double secondValue) {
         double showed = firstValue / secondValue;
-        System.out.println(showed);
-    }
+        return showed;    }
 }

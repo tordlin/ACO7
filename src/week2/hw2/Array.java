@@ -88,6 +88,7 @@ public class Array {
 
         return this.elements.length == other.elements.length;
 
+
         for (int i = 0; i < this.elements.length; i++) {
             if(this.elements[i] != other.elements.length){
                 return false;
