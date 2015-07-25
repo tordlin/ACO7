@@ -5,9 +5,9 @@ package week2.hw2;
  */
 public class TestEmployees {
     public static void main(String[] args) {
-        Cleaner cleaner = new Cleaner("Vova", 500);
-        QAEngineer tester = new QAEngineer("Jenya", 1000);
-        SoftwareIngineer programmer = new SoftwareIngineer("Roma", 1500);
+        Employee cleaner = new Cleaner("Vova", 500);
+        Employee tester = new QAEngineer("Jenya", 1000);
+        Employee programmer = new SoftwareIngineer("Roma", 1500);
 
         System.out.println(cleaner.toString());
         System.out.println(tester.toString());

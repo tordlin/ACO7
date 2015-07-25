@@ -7,9 +7,7 @@ public class StringClass {
     char[] elements;
 
     public StringClass(String word) {
-        this.elements = new char[word.length()];
-
-        elements = word.toCharArray();
+        this.elements = word.toCharArray();
     }
 
     public void print() {
@@ -22,7 +20,7 @@ public class StringClass {
     public String concatenation(String secondWord) {
         char[] newElements = new char[elements.length + secondWord.length()];
 
-        char[]secondPart = secondWord.toCharArray();
+        char[] secondPart = secondWord.toCharArray();
 
         for (int i = 0; i < elements.length; i++) {
             newElements[i] = elements[i];
@@ -54,26 +52,91 @@ public class StringClass {
     }
 
     public String upperCase() {
+
         return getStringFromCharArray();
     }
 
     public String spaceDeleting() {
+        int countOfNonSpace = 0;
+
+        for (int i = 0; i < elements.length; i++) {
+            if (' ' != (int) elements[i]) {
+                countOfNonSpace++;
+            }
+        }
+
+        System.out.println(countOfNonSpace);
+
+        char[] newElements = new char[countOfNonSpace];
+
+        int counterNewEements = 0;
+
+        for (int i = 0; i < elements.length; i++) {
+            if (' ' != (int) elements[i]) {
+                newElements[counterNewEements] = elements[i];
+                counterNewEements++;
+            }
+        }
+
+        elements = newElements;
 
         return getStringFromCharArray();
     }
 
     public boolean equalsToString(String newWord) {
-        if(newWord == null) {
+        if (newWord == null) {
             return false;
         }
         char[] newElements = newWord.toCharArray();
 
-        return this.elements.length == newElements.length;
-
-        /*for (int i = 0; i < this.elements.length; i++) {
-            if(this.elements[i] != newElements[i]){
+        for (int i = 0; i < this.elements.length; i++) {
+            if (this.elements[i] != newElements[i]) {
                 return false;
             }
-        }*/
+        }
+
+        return this.elements.length == newElements.length;
+    }
+
+    public boolean contains(StringClass newString) {
+        if (elements.length < newString.elements.length) {
+            return false;
+        }
+
+        boolean result = false;
+
+        for (int i = 0; i < elements.length; i++) {
+            if (elements[i] == newString.elements[0]) {
+                int counter = 1;
+                for (int j = 1; j < newString.elements.length && j + i < elements.length; j++) {
+                    if (newString.elements[j] != elements[i + j]) {
+                        break;
+                    }
+                    counter++;
+                }
+
+                if (counter == newString.elements.length) {
+                    result = true;
+                }
+            }
+        }
+
+        return result;
+    }
+
+    public String substring(int indexStart, int indexEnd) {
+
+        char[] newElements = new char[indexEnd - indexStart];
+
+        int counterForNewElements = 0;
+
+        for (int i = indexStart; i < indexEnd; i++) {
+            newElements[counterForNewElements] = elements[i];
+            counterForNewElements++;
+        }
+
+        elements = newElements;
+
+        return getStringFromCharArray();
     }
 }

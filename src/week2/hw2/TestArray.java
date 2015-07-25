@@ -9,7 +9,7 @@ public class TestArray {
 
         arr.populateRandomValues();
 
-        System.out.println(arr.toString());
+        System.out.println(arr);
 
         System.out.println("Min is " + arr.findMin());
 
@@ -17,7 +17,7 @@ public class TestArray {
 
         arr.expandLengthTo(2);
 
-        System.out.println(arr.toString());
+        System.out.println(arr);
 
         arr.sortAsc();
 
@@ -26,7 +26,7 @@ public class TestArray {
 
         arr2.populateRandomValues();
 
-        System.out.println(arr2.toString());
+        System.out.println(arr2);
 
         System.out.println("Min is " + arr2.findMin());
 

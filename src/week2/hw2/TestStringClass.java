@@ -9,14 +9,20 @@ public class TestStringClass {
 
         stringClass.print();
 
-        System.out.println(stringClass.concatenation("secondWord"));
+        System.out.println(stringClass.concatenation(" secondWord 1"));
 
-        System.out.println(stringClass.lowerCase());
+        StringClass stringClass2 = new StringClass("dWo");
 
-        System.out.println(stringClass.upperCase());
+        System.out.println(stringClass.contains(stringClass2));
+
+        System.out.println(stringClass.substring(3, 7));
+
+        //System.out.println(stringClass.lowerCase());
+
+        //System.out.println(stringClass.upperCase());
 
         System.out.println(stringClass.spaceDeleting());
 
-        System.out.println(stringClass.equalsToString("NewWord"));
+        System.out.println(stringClass.equalsToString("Word_secondWord"));
     }
 }

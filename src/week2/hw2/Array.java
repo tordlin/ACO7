@@ -86,13 +86,12 @@ public class Array {
 
         Array other = (Array) arr;
 
-        return this.elements.length == other.elements.length;
-
-
-        /*for (int i = 0; i < this.elements.length; i++) {
+        for (int i = 0; i < this.elements.length; i++) {
             if(this.elements[i] != other.elements.length){
                 return false;
             }
-        }*/
+        }
+
+        return this.elements.length == other.elements.length;
     }
 }
