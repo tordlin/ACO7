@@ -6,9 +6,16 @@ package week3.hw3;
 public abstract class Employee {
     private String name;
     private int bankAccount;
+    private int drink;
+    private int perform;
+
 
     public void setBankAccount(int bankAccount) {
         this.bankAccount = bankAccount;
+    }
+
+    public int getBankAccount() {
+        return bankAccount;
     }
 
     public void setName(String name) {
@@ -16,9 +23,28 @@ public abstract class Employee {
 
     }
 
-    public Employee(String name){
+    public String getName() {
+        return name;
+    }
+
+    public int getDrink() {
+        return drink;
+    }
+
+    public int getPerform() {
+        return perform;
+    }
+
+    public Employee(String name) {
         this.name = name;
     }
 
-    public abstract void perform();
+
+    public void perform(){
+
+    }
+
+    public void drink(){
+
+    }
 }
