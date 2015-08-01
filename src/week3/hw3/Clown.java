@@ -4,9 +4,6 @@ package week3.hw3;
  * Created by Tordlin on 29/07/2015.
  */
 public class Clown extends Employee{
-    private int drink = 0;
-    private int perform = 0;
-    private int bankAccount;
 
     public Clown(String name) {
         super(name);
@@ -15,16 +12,16 @@ public class Clown extends Employee{
     @Override
     public void perform() {
         System.out.println("Very funny!");
-        perform++;
-    }
-
-    @Override
-    public int getPerform() {
-        return perform;
+        int temp = getCounterPerform();
+        temp++;
+        setCounterPerform(temp);
     }
 
     @Override
     public void drink() {
-        drink++;
+        System.out.println("Drinking");
+        int temp = getCounterDrink();
+        temp++;
+        setCounterDrink(temp);
     }
 }

@@ -1,6 +1,5 @@
 package week3.hw3;
 
-import java.util.Arrays;
 import java.util.Scanner;
 
 /**
@@ -101,10 +100,10 @@ public class Circus {
         int drinkAcrobatCounter = 0;
         int indexOfDrinkestAcrobat = 0;
         for (int i = 0; i < listOfEmployees.length; i++) {
-            if (listOfEmployees[i] instanceof Acrobat && listOfEmployees[i].getDrink() > 0) {
+            if (listOfEmployees[i] instanceof Acrobat && listOfEmployees[i].getCounterDrink() > 0) {
                 drinkAcrobatCounter++;
-                if (listOfEmployees[i].getDrink() > howManyDrinksWereDrunk) {
-                    howManyDrinksWereDrunk = listOfEmployees[i].getDrink();
+                if (listOfEmployees[i].getCounterDrink() > howManyDrinksWereDrunk) {
+                    howManyDrinksWereDrunk = listOfEmployees[i].getCounterDrink();
                     indexOfDrinkestAcrobat = i;
                 }
             }
@@ -151,7 +150,7 @@ public class Circus {
         showListOfActor();
         int whoWillPerform = sc.nextInt() - 1;
 
-        System.out.println(listOfEmployees[whoWillPerform].getPerform());
+        System.out.println(listOfEmployees[whoWillPerform].getCounterPerform());
     }
 
     public void giveSalary() {

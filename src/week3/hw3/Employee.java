@@ -6,8 +6,8 @@ package week3.hw3;
 public abstract class Employee {
     private String name;
     private int bankAccount;
-    private int drink;
-    private int perform;
+    private int counterDrink;
+    private int counterPerform;
 
 
     public void setBankAccount(int bankAccount) {
@@ -27,12 +27,20 @@ public abstract class Employee {
         return name;
     }
 
-    public int getDrink() {
-        return drink;
+    public void setCounterDrink(int counterDrink) {
+        this.counterDrink = counterDrink;
     }
 
-    public int getPerform() {
-        return perform;
+    public void setCounterPerform(int counterPerform) {
+        this.counterPerform = counterPerform;
+    }
+
+    public int getCounterDrink() {
+        return counterDrink;
+    }
+
+    public int getCounterPerform() {
+        return counterPerform;
     }
 
     public Employee(String name) {
@@ -40,11 +48,7 @@ public abstract class Employee {
     }
 
 
-    public void perform(){
+    public abstract void perform();
 
-    }
-
-    public void drink(){
-
-    }
+    public abstract void drink();
 }
