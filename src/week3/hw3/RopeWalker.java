@@ -5,11 +5,6 @@ package week3.hw3;
  */
 public class RopeWalker extends Employee{
 
-    @Override
-    public void setBankAccount(int bankAccount) {
-        this.getBankAccount() = (int) (bankAccount + bankAccount * 0.1);
-    }
-
     public RopeWalker(String name) {
         super(name);
     }

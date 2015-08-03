@@ -5,16 +5,16 @@ package week3.hw3;
  */
 public abstract class Employee {
     private String name;
-    private int bankAccount;
+    private double bankAccount;
     private int counterDrink;
     private int counterPerform;
 
 
-    public void setBankAccount(int bankAccount) {
-        this.bankAccount = bankAccount;
+    public void setBankAccount(double bankAccount) {
+        this.bankAccount = this.bankAccount + bankAccount;
     }
 
-    public int getBankAccount() {
+    public double getBankAccount() {
         return bankAccount;
     }
 

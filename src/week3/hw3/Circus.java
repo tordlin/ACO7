@@ -6,6 +6,8 @@ import java.util.Scanner;
  * Created by Tordlin on 29/07/2015.
  */
 public class Circus {
+    double myMoney = 3000;
+
     Scanner sc = new Scanner(System.in);
     private String city;
     Employee[] listOfEmployees = new Employee[8];
@@ -26,7 +28,7 @@ public class Circus {
 
     public void showListOfActor() {
         for (int i = 0; i < listOfEmployees.length; i++) {
-            System.out.println(i + 1 + ". " +listOfEmployees[i].getName() + " is " + proffessionOfEmployee(listOfEmployees[i]));
+            System.out.println(i + 1 + ". " + listOfEmployees[i].getName() + " is " + proffessionOfEmployee(listOfEmployees[i]));
         }
     }
 
@@ -157,7 +159,13 @@ public class Circus {
         System.out.println("How much salary is?");
         int newSalary = sc.nextInt();
         for (int i = 0; i < listOfEmployees.length; i++) {
-            listOfEmployees[i].setBankAccount(newSalary);
+            if (listOfEmployees[i] instanceof RopeWalker) {
+                listOfEmployees[i].setBankAccount(newSalary + newSalary * 0.1);
+                myMoney -= newSalary;
+            } else {
+                listOfEmployees[i].setBankAccount(newSalary);
+                myMoney -= newSalary;
+            }
         }
 
         for (int i = 0; i < listOfEmployees.length; i++) {
