@@ -6,48 +6,54 @@ import java.util.Arrays;
  * Created by Tordlin on 10/08/2015.
  */
 public class ImpIList implements IList {
-    private int size;
+    private int index = 0;
     Object[] listOfObject;
 
 
     public ImpIList(int size) {
-        this.size = size;
         this.listOfObject = new Object[size];
     }
 
     public int getSize() {
-        return size;
+        return index;
     }
 
     @Override
     public boolean add(Object obj) {
-        Object[] newListOfObject = new Object[size + 1];
+        ensureCapacity();
+
         for (int i = 0; i < listOfObject.length; i++) {
-            newListOfObject[i] = listOfObject[i];
+            if (listOfObject[i] == null) {
+                index = i;
+            }
         }
 
-        newListOfObject[size] = obj;
-
-        listOfObject = newListOfObject;
+        listOfObject[index] = obj;
 
         return true;
+    }
+
+    private void ensureCapacity() {
+        int counterOfFreeCells = 0;
+        for (int i = 0; i < listOfObject.length; i++) {
+            if (listOfObject[i] == null) {
+                counterOfFreeCells++;
+                break;
+            }
+            if (counterOfFreeCells == 0) {
+                Object[] newListOfObject = new Object[(index + 1) * 2];
+                for (int j = 0; j < listOfObject.length; j++) {
+                    newListOfObject[i] = listOfObject[i];
+                }
+                listOfObject = newListOfObject;
+            }
+        }
     }
 
 
     @Override
     public boolean add(Object obj, int index) {
-        Object[] newListOfObject = new Object[size + 1];
-        for (int i = 0; i < index; i++) {
-            newListOfObject[i] = listOfObject[i];
-        }
-
-        for (int i = index; i < listOfObject.length; i++) {
-            newListOfObject[index + 1] = listOfObject[i];
-        }
-
-        newListOfObject[index] = obj;
-
-        listOfObject = newListOfObject;
+        listOfObject[index] = obj;
 
         return true;
     }
@@ -58,15 +64,15 @@ public class ImpIList implements IList {
             if (listOfObject[i].equals(obj)) {
 
                 int indexForDeleting = i;
-                //this.remove(indexForDeleting);
-                listOfObject[indexForDeleting] = null;
+                this.remove(indexForDeleting);
+                /*listOfObject[indexForDeleting] = null;
 
                 for (int j = indexForDeleting; j < listOfObject.length - 1; j++) {
                     Object temp;
                     temp = listOfObject[j + 1];
                     listOfObject[j + 1] = listOfObject[j];
                     listOfObject[j] = temp;
-                }
+                }*/
             }
         }
         return listOfObject;
@@ -102,8 +108,7 @@ public class ImpIList implements IList {
 
     @Override
     public String toString() {
-        return "ImpIList{" +
-                "size=" + size +
+        return "size = " + (index) +
                 ", listOfObject=" + Arrays.toString(listOfObject) +
                 '}';
     }
@@ -115,7 +120,7 @@ public class ImpIList implements IList {
 
         ImpIList impIList = (ImpIList) o;
 
-        if (size != impIList.size) return false;
+        if (index != impIList.index) return false;
         // Probably incorrect - comparing Object[] arrays with Arrays.equals
         return Arrays.equals(listOfObject, impIList.listOfObject);
 
