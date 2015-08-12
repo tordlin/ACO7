@@ -7,7 +7,7 @@ import java.util.Arrays;
  */
 public class ImpIList implements IList {
     private int index = 0;
-    Object[] listOfObject;
+    private Object[] listOfObject;
 
 
     public ImpIList(int size) {
@@ -22,39 +22,37 @@ public class ImpIList implements IList {
     public boolean add(Object obj) {
         ensureCapacity();
 
-        for (int i = 0; i < listOfObject.length; i++) {
-            if (listOfObject[i] == null) {
-                index = i;
-            }
-        }
-
         listOfObject[index] = obj;
+        index++;
 
         return true;
     }
 
     private void ensureCapacity() {
-        int counterOfFreeCells = 0;
-        for (int i = 0; i < listOfObject.length; i++) {
-            if (listOfObject[i] == null) {
-                counterOfFreeCells++;
-                break;
+
+        if (listOfObject.length <= index) {
+            Object[] newListOfObject = new Object[index * 2];
+            for (int j = 0; j < listOfObject.length; j++) {
+                newListOfObject[j] = listOfObject[j];
             }
-            if (counterOfFreeCells == 0) {
-                Object[] newListOfObject = new Object[(index + 1) * 2];
-                for (int j = 0; j < listOfObject.length; j++) {
-                    newListOfObject[i] = listOfObject[i];
-                }
-                listOfObject = newListOfObject;
-            }
+            listOfObject = newListOfObject;
         }
     }
 
 
     @Override
     public boolean add(Object obj, int index) {
+        ensureCapacity();
+
+        Object temp;
+
+        for (int i = listOfObject.length - 1; i > index; i--) {
+            listOfObject[i] = listOfObject[i - 1];
+        }
+
         listOfObject[index] = obj;
 
+        this.index++;
         return true;
     }
 
@@ -75,11 +73,12 @@ public class ImpIList implements IList {
                 }*/
             }
         }
-        return listOfObject;
+        return obj;
     }
 
     @Override
     public Object remove(int index) {
+        Object returning = listOfObject[index];
         listOfObject[index] = null;
 
         for (int i = index; i < listOfObject.length - 1; i++) {
@@ -88,7 +87,7 @@ public class ImpIList implements IList {
             listOfObject[i + 1] = listOfObject[i];
             listOfObject[i] = temp;
         }
-        return listOfObject;
+        return returning;
     }
 
     @Override

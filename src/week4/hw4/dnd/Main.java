@@ -26,6 +26,5 @@ public class Main {
             exitFromGame = gameLogic.fight(exitFromGame);
 
         }
-
     }
 }
