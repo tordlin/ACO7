@@ -22,8 +22,7 @@ public class ImpIList implements IList {
     public boolean add(Object obj) {
         ensureCapacity();
 
-        listOfObject[index] = obj;
-        index++;
+        listOfObject[index++] = obj;
 
         return true;
     }
@@ -31,11 +30,12 @@ public class ImpIList implements IList {
     private void ensureCapacity() {
 
         if (listOfObject.length <= index) {
-            Object[] newListOfObject = new Object[index * 2];
-            for (int j = 0; j < listOfObject.length; j++) {
+            //Object[] newListOfObject = new Object[index * 2];
+            Arrays.copyOf(listOfObject, index * 2);
+            /*for (int j = 0; j < listOfObject.length; j++) {
                 newListOfObject[j] = listOfObject[j];
-            }
-            listOfObject = newListOfObject;
+            }*/
+            //listOfObject = newListOfObject;
         }
     }
 
@@ -50,9 +50,8 @@ public class ImpIList implements IList {
             listOfObject[i] = listOfObject[i - 1];
         }
 
-        listOfObject[index] = obj;
+        listOfObject[index++] = obj;
 
-        this.index++;
         return true;
     }
 
