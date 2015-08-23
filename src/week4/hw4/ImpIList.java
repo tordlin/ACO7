@@ -1,17 +1,18 @@
 package week4.hw4;
 
 import java.util.Arrays;
+import java.util.Iterator;
 
 /**
  * Created by Tordlin on 10/08/2015.
  */
-public class ImpIList implements IList {
+public class ImpIList<T> implements IList<T> {
     private int index = 0;
-    private Object[] listOfObject;
+    private T[] listOfObject;
 
 
     public ImpIList(int size) {
-        this.listOfObject = new Object[size];
+        this.listOfObject = new T[size];
     }
 
     public int getSize() {
@@ -19,12 +20,22 @@ public class ImpIList implements IList {
     }
 
     @Override
-    public boolean add(Object obj) {
+    public boolean add(T obj) {
         ensureCapacity();
 
         listOfObject[index++] = obj;
 
         return true;
+    }
+
+    @Override
+    public void clear() {
+
+    }
+
+    @Override
+    public boolean isEmpty() {
+        return false;
     }
 
     private void ensureCapacity() {
@@ -41,7 +52,7 @@ public class ImpIList implements IList {
 
 
     @Override
-    public boolean add(Object obj, int index) {
+    public boolean add(T obj, int index) {
         ensureCapacity();
 
         Object temp;
@@ -81,7 +92,7 @@ public class ImpIList implements IList {
         listOfObject[index] = null;
 
         for (int i = index; i < listOfObject.length - 1; i++) {
-            Object temp;
+            T temp;
             temp = listOfObject[i + 1];
             listOfObject[i + 1] = listOfObject[i];
             listOfObject[i] = temp;
@@ -127,5 +138,10 @@ public class ImpIList implements IList {
     @Override
     public int size() {
         return getSize();
+    }
+
+    @Override
+    public Iterator iterator() {
+        return null;
     }
 }

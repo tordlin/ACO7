@@ -1,12 +1,14 @@
 package week4.hw4;
 
+import week5.day2.ICollection;
+
 /**
  * Created by Tordlin on 10/08/2015.
  */
-public interface IList {
-    boolean add(Object obj);
+public interface IList<T> extends  ICollection<T>{
+    boolean add(T obj);
 
-    boolean add(Object obj, int index);
+    boolean add(T obj, int index);
 
     Object remove(Object obj);
 
