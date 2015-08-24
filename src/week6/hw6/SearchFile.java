@@ -25,19 +25,15 @@ public class SearchFile {
 
         List<String> searchResult = new ArrayList<String>();
 
-        File directoryOfSearch = new File(stringDirectoryOfSearch);
 
-        while (true) {
-            File[] list = directoryOfSearch.listFiles();
+        checking(resultOfSearch, stringDirectoryOfSearch, filter, searchResult);
 
-            for (File file : list) {
-                if (file.getName().equals(filter) && file.isFile()) {
-                    searchResult.add(file.getPath());
-                    resultOfSearch++;
-                }
-            }
-        }
 
+        showResult(resultOfSearch, searchResult);
+
+    }
+
+    private static void showResult(int resultOfSearch, List<String> searchResult) {
         if (resultOfSearch > 0) {
             for (String s : searchResult) {
                 System.out.println(s);
@@ -45,6 +41,22 @@ public class SearchFile {
         } else {
             System.out.println("File not found");
         }
+    }
 
+    private static void checking(int resultOfSearch, String stringDirectoryOfSearch, String filter, List<String> searchResult) {
+        File directoryOfSearch = new File(stringDirectoryOfSearch);
+
+        File[] list = directoryOfSearch.listFiles();
+
+        for (File file : list) {
+            if (file.getName().equals(filter) && file.isFile() && !(file.isHidden())) {
+                searchResult.add(file.getPath());
+                resultOfSearch++;
+            } else if (file.isDirectory() && !(file.isHidden())) {
+                for (File file1 : list) {
+                    checking(resultOfSearch, file1.getPath(), filter, searchResult);
+                }
+            }
+        }
     }
 }
