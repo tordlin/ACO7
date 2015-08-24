@@ -13,20 +13,32 @@ public class MyLinkedList<T> implements IList {
     private  Node<T> tail;
     private  int size;
 
+
     @Override
-    public boolean add(T obj) {
+    public boolean add(Object obj) {
         return false;
     }
 
     @Override
-    public boolean add(T obj, int index) {
+    public void clear() {
+
+    }
+
+    @Override
+    public boolean isEmpty() {
+        return false;
+    }
+
+    @Override
+    public boolean add(Object obj, int index) {
         return false;
     }
 
     @Override
     public Object remove(Object obj) {
-        return null;
+        return false;
     }
+
 
     @Override
     public Object remove(int index) {

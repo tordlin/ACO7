@@ -12,7 +12,7 @@ public class ImpIList<T> implements IList<T> {
 
 
     public ImpIList(int size) {
-        this.listOfObject = new T[size];
+//        this.listOfObject = new T[size];
     }
 
     public int getSize() {
@@ -73,14 +73,15 @@ public class ImpIList<T> implements IList<T> {
 
                 int indexForDeleting = i;
                 this.remove(indexForDeleting);
-                /*listOfObject[indexForDeleting] = null;
+                listOfObject[indexForDeleting] = null;
 
                 for (int j = indexForDeleting; j < listOfObject.length - 1; j++) {
-                    Object temp;
+                    T temp;
                     temp = listOfObject[j + 1];
                     listOfObject[j + 1] = listOfObject[j];
                     listOfObject[j] = temp;
-                }*/
+                }
+
             }
         }
         return obj;

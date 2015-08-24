@@ -1,6 +1,7 @@
 package week5.day2;
 
 import java.util.Arrays;
+import java.util.Iterator;
 
 /**
  * Created by Tordlin on 16/08/2015.
@@ -52,7 +53,7 @@ public class ImplemetationOfStack<T> implements IStack<T> {
     }
 
     @Override
-    public boolean remove(T t) {
+    public Object remove(T t) {
         return false;
     }
 
@@ -64,5 +65,10 @@ public class ImplemetationOfStack<T> implements IStack<T> {
     @Override
     public boolean contains(T t) {
         return false;
+    }
+
+    @Override
+    public Iterator<T> iterator() {
+        return null;
     }
 }
