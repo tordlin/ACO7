@@ -49,12 +49,14 @@ public class SearchFile {
         File[] list = directoryOfSearch.listFiles();
 
         for (File file : list) {
-            if (file.getName().equals(filter) && file.isFile() && !(file.isHidden())) {
-                searchResult.add(file.getPath());
-                resultOfSearch++;
-            } else if (file.isDirectory() && !(file.isHidden())) {
-                for (File file1 : list) {
-                    checking(resultOfSearch, file1.getPath(), filter, searchResult);
+            if (file != null) {
+                if (file.getName().equals(filter) && file.isFile() && !(file.isHidden())) {
+                    searchResult.add(file.getPath());
+                    resultOfSearch++;
+                } else if (file.isDirectory() && !(file.isHidden())) {
+                    for (File file1 : list) {
+                        checking(resultOfSearch, file1.getPath(), filter, searchResult);
+                    }
                 }
             }
         }
