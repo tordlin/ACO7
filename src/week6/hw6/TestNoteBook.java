@@ -50,8 +50,12 @@ public class TestNoteBook {
                 System.out.println("File created!");
             } catch (IOException e) {
                 e.printStackTrace();
+            } finally {
+                if (writer != null) {
+                    writer.close();
+                }
             }
-        }
 
+        }
     }
 }
