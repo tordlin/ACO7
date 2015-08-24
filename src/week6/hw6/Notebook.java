@@ -12,7 +12,7 @@ import java.util.Scanner;
         а)юзер вводит путь к файлу, если есть показываете его содержимое в консоль.
         б)есть возможность создать новый файл и что-то записать в него.*/
 
-public class NoteBook {
+public class Notebook {
     public static void main(String[] args) throws IOException {
         boolean exitFromLoop = true;
         BufferedReader reader = null;
