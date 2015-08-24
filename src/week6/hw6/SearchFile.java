@@ -16,27 +16,35 @@ public class SearchFile {
         Scanner sc = new Scanner(System.in);
         int resultOfSearch = 0;
 
+        System.out.println("Please enter directory of search");
+        String stringDirectoryOfSearch = sc.nextLine();
+
 
         System.out.println("Please enter file name");
         String filter = sc.nextLine();
+
         List<String> searchResult = new ArrayList<String>();
 
-        File mainDirectory = new File("d:\\");
+        File directoryOfSearch = new File(stringDirectoryOfSearch);
 
-        File[] list = mainDirectory.listFiles();
+        while (true) {
+            File[] list = directoryOfSearch.listFiles();
 
-        for (File file : list) {
-            if(file.getName().equals(filter) && file.isFile()){
-                searchResult.add(file.getPath());
-                resultOfSearch++;
+            for (File file : list) {
+                if (file.getName().equals(filter) && file.isFile()) {
+                    searchResult.add(file.getPath());
+                    resultOfSearch++;
+                }
             }
         }
-        if(resultOfSearch > 0){
+
+        if (resultOfSearch > 0) {
             for (String s : searchResult) {
                 System.out.println(s);
             }
-        }else{
+        } else {
             System.out.println("File not found");
         }
+
     }
 }
