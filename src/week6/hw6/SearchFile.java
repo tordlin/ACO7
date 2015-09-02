@@ -45,7 +45,9 @@ public class SearchFile {
 
     private static void checking(int resultOfSearch, String stringDirectoryOfSearch, String filter, List<String> searchResult) {
         File directoryOfSearch = new File(stringDirectoryOfSearch);
-
+        if(!directoryOfSearch.isDirectory()){
+            return;
+        }
         File[] list = directoryOfSearch.listFiles();
 
         for (File file : list) {
